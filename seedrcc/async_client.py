@@ -664,7 +664,7 @@ class AsyncSeedr(BaseClient):
 
             if isinstance(data, dict) and data.get("result", True) is not True:
                 error = data.get("error") or f"Unknown API error : {data.__str__()}"
-                raise APIError(data.get(error))
+                raise APIError(error)
 
             return data
         except APIError as e:
